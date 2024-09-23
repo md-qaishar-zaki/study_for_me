@@ -1,27 +1,16 @@
-import React, { useState, useRef } from 'react'
-import './App.css';
+import React from 'react'
+import CardNameChanger from './Components/CardNameChanger';
+import TimeChalenger from './Components/TimeChalenger';
 
 export default function App() {
-
-  const [cardtitle, Setcardtitle] = useState(null);
-
-  const CardName = useRef();
-
-  const submitHandel = () => {
-    Setcardtitle(CardName.current.value)
-  }
-
   return (
     <>
-      <div class="card">
-        <div class="card-image"></div>
-        <div class="card-content">
-          <h2 class="card-title">{cardtitle ?? 'Enter Name In Input'}</h2>
-          <p class="card-text">Dies ist eine verbesserte interaktive Card-Komponente mit Gradienten-Design, Mikrointeraktionen und einem Bild.</p>
-          <input type='text' ref={CardName} />
-          <button class="card-button" onClick={submitHandel}>Mehr erfahren</button>
-        </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+        <CardNameChanger />
+        <TimeChalenger title={'EASY'} TargetTime={'10'} />
+        <TimeChalenger title={'High'} TargetTime={'12'}  />
+        <TimeChalenger title={'Pro'} TargetTime={'32'}  />
       </div>
     </>
   )
-} 
+}

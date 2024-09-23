@@ -1,9 +1,8 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 30px;
+  width: 95%;
   height: 100vh;
-  margin: 0;
+  margin: auto;
   background-color: #f0f0f0;
   font-family: 'Poppins', sans-serif;
 }
@@ -82,4 +81,42 @@ input {
   outline: none;
   width: 100%;
   font-size: 16px;
+}
+
+.ChallengesBox {
+  background: #aefeff;
+  height: 200px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ChallengesBox h2 {
+  line-height: normal;
+  margin: 0;
+}
+
+.ChallengesBox p {
+  border: 1px solid #00000062;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.ChallengesBox button {
+  background: #082c2c;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.ChallengesBox span{
+  font-size: 14px;
 }
