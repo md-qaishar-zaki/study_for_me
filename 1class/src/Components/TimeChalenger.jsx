@@ -1,30 +1,36 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
+import ResultModal from "./ResultModal.jsx";
 
 export default function TimeChalenger({ title, TargetTime }) {
     const [ExprTimmer, SetExprTimmer] = useState(false);
     const [StartedTimmer, SetStartedTimmer] = useState(false);
+    let timmer = useRef();
+    const dialog = useRef();
 
     const startHandel = () => {
 
-        setTimeout(() => {
-            SetExprTimmer(true)
+        timmer.current = setTimeout(() => {
+            SetExprTimmer(true);
+            dialog.current.open();
         }, TargetTime * 100);
 
         SetStartedTimmer(true)
     }
 
     const StopTimmer = () => {
-
+        clearTimeout(timmer.current);
+        SetStartedTimmer(false)
+        SetExprTimmer(false)
     }
     return (
         <>
+            <ResultModal ref={dialog} targetTime={TargetTime} result={'Lost'} />
             <div className="ChallengesBox">
                 <h2>{title}</h2>
-                {ExprTimmer && <span>You lost !</span>}
                 <p>{TargetTime} Secound{TargetTime > 1 ? 's' : ''}</p>
-                <button onClick={startHandel}>
+                <button onClick={StartedTimmer ? StopTimmer : startHandel}>
                     {StartedTimmer ? 'Stop' : 'Start'}  Challenge</button>
-                <span>Time inactive</span>
+                <span>Time inactive </span>
             </div>
         </>
     )
